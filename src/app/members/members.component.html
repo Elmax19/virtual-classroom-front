@@ -1,0 +1,43 @@
+<nav>
+  <div class="navbar navbar-dark bg-dark shadow-sm">
+    <div class="container">
+      <li class="nav-item dropdown">
+        <p class="nav-link dropdown-toggle" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">
+          Actions</p>
+        <ul class="dropdown-menu" aria-labelledby="dropdown04">
+          <li><a class="dropdown-item" (click)="raiseHand()">
+            <div *ngIf="user.hand;else unset">Raise hand down</div>
+            <ng-template #unset>
+              Raise hand up
+            </ng-template>
+          </a></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <p class="nav-link dropdown-toggle" id="dropdown02" data-bs-toggle="dropdown" aria-expanded="false">
+          {{user.login}}
+        </p>
+        <ul class="dropdown-menu" aria-labelledby="dropdown04">
+          <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
+        </ul>
+      </li>
+    </div>
+  </div>
+</nav>
+<main class="flex-shrink-0" style="height: 84vh; overflow: scroll; ">
+  <div class="album py-3 bg-light">
+    <div class="container" style="padding: 0 0 15px;">
+      <div style="margin: auto; width: max-content;">
+        <p>Class members</p>
+        <table border="1px" style="padding: 5px 10px; border-collapse: inherit; background: white">
+          <tr *ngFor="let student of students">
+            <td style="padding: 10px 0">{{student.login}}</td>
+            <td style="padding: 0 30px 0 50px;"><img *ngIf="student.hand" src="assets/images/hand.png"
+                                                     alt="hand"
+                                                     height="25px"/></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
