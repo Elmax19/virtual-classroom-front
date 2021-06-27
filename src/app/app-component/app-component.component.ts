@@ -1,23 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-app-component',
   templateUrl: './app-component.component.html',
-  styleUrls: ['./app-component.component.css']
+  styleUrls: ['./app-component.component.css'],
+
 })
 export class AppComponentComponent implements OnInit {
 
-  title : string = '';
+  title: string;
 
   constructor() {
-
+    this.title = "Virtual Classroom";
   }
+
 
   ngOnInit(): void {
   }
 
-  setTitle(title : string){
-    this.title=title;
+  setTitle(title: string) {
+    this.title = title;
   }
 
 }

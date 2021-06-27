@@ -5,11 +5,13 @@ import {Observable} from "rxjs";
 import {StudentServiceService} from "../student-service.service";
 import {AppComponentComponent} from "../app-component/app-component.component";
 import {ActivatedRoute, Router} from "@angular/router";
+import {WebsocketService} from "../webSocket/websocket.service";
 
 @Component({
   selector: 'app-members',
   templateUrl: './members.component.html',
-  styleUrls: ['./members.component.css']
+  styleUrls: ['./members.component.css'],
+  providers: [WebsocketService]
 })
 export class MembersComponent implements OnInit {
   students: Student[] = [];
@@ -18,7 +20,8 @@ export class MembersComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private router: Router,
               private studentService: StudentServiceService,
-              private appComponentComponent: AppComponentComponent) {
+              private appComponentComponent: AppComponentComponent,
+              private websocketService:WebsocketService) {
     appComponentComponent.setTitle('Classroom - Members');
   }
 
@@ -27,6 +30,9 @@ export class MembersComponent implements OnInit {
     if (this.user == null) {
       this.router.navigate(['/login']);
     }
+    this.websocketService.listen("test event").subscribe((data) => {
+      console.log(data);
+    })
   }
 
   logout() {
