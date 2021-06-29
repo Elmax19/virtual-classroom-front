@@ -24,19 +24,21 @@
     </div>
   </div>
 </nav>
-<main class="flex-shrink-0" style="height: 84vh; overflow: scroll; ">
+<main class="flex-shrink-0">
   <div class="album py-3 bg-light">
-    <div class="container" style="padding: 0 0 15px;">
-      <div style="margin: auto; width: max-content;">
-        <p>Class members</p>
-        <table border="1px" style="padding: 5px 10px; border-collapse: inherit; background: white">
-          <tr *ngFor="let student of students">
-            <td style="padding: 10px 0">{{student.login}}</td>
-            <td style="padding: 0 30px 0 50px;"><img *ngIf="student.hand" src="assets/images/hand.png"
-                                                     alt="hand"
-                                                     height="25px"/></td>
-          </tr>
-        </table>
+    <div class="container-padding">
+      <div class="container">
+        <div style="margin: auto; width: max-content;">
+          <p>Class members</p>
+          <table border="1px">
+            <tr *ngFor="let student of students">
+              <td class="login">{{student.login}}</td>
+              <td class="hand"><img *ngIf="student.hand" src="assets/images/hand.png"
+                                    alt="hand"
+                                    height="25px"/></td>
+            </tr>
+          </table>
+        </div>
       </div>
     </div>
   </div>

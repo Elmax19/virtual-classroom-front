@@ -5,7 +5,7 @@ import {MembersComponent} from './members/members.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule, HttpClient} from '@angular/common/http';
 import {Routes, RouterModule} from "@angular/router";
-import { AppComponentComponent } from './app-component/app-component.component';
+import {AppComponentComponent} from './app-component/app-component.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
